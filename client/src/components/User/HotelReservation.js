@@ -20,50 +20,20 @@ function HotelReservation() {
   }
 
   const downloadTicket = async (id)=>{
-    // try {
-    //   const response = await axios.post(HOST+'/api/v1/generate-pdf', {order_id: id}, { responseType: 'arraybuffer' });
+    try {
+      const response = await axios.post(HOST+'/api/v1/generate-pdf', {order_id: id}, { responseType: 'arraybuffer' });
 
-    //   // Create a Blob from the received ArrayBuffer
-    //   const blob = new Blob([response.data], { type: 'application/pdf' });
+      // Create a Blob from the received ArrayBuffer
+      const blob = new Blob([response.data], { type: 'application/pdf' });
 
-    //   // Create a URL for the Blob and set it as the PDF data
-    //   const a = document.createElement('a');
-    //   a.href = URL.createObjectURL(blob);
-    //   a.download = id+'.pdf';
-    //   a.click();
-    // } catch (error) {
-    //   console.error(error);
-    // } 
-    const doc = new jsPDF("p", "pt", "a4");
-
-    // HTML content to be converted to PDF
-    const htmlContent = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-      </head>
-      <style>
-        h1{
-          font-size: 5px;
-        }
-      </style>
-      <body>
-      <div>
-      <h1>Hello PDF!</h1>
-      <p>This is a test PDF generated from HTML using jsPDF in React.</p>
-      </div>
-      </body>
-      </html>
-    `;
-
-    doc.html(htmlContent, {
-      callback: function (doc) {
-          doc.save('mypdf.pdf');
-      },
-    });
+      // Create a URL for the Blob and set it as the PDF data
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = id+'.pdf';
+      a.click();
+    } catch (error) {
+      console.error(error);
+    } 
   }
 
   const {orders} = data;
