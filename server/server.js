@@ -38,7 +38,7 @@ import roomRoute from "./routes/room.js";
 import userRoute from "./routes/user.js";
 import paymentRoute from "./routes/payment.js";
 import orderRoute from "./routes/order.js";
-import ticketRoute from "./routes/ticket.js";
+import ticketRoute from "./routes/ticket.js"; 
 
 // middleware
 app.use(cors({

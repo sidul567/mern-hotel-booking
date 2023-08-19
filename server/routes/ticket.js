@@ -9,15 +9,12 @@ router.post("/generate-pdf", async (req, res) => {
   
     try {
       const browser = await puppeteer.launch({'headless': true,  args: [
-        "--disable-setuid-sandbox",
+        "--disable-web-security",
         "--no-sandbox",
-        "--single-process",
-        "--no-zygote"
-      ],executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+      ]
       });
       const page = await browser.newPage();
       await page.evaluateHandle('document.fonts.ready');
-      await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36")
 
       await page.setContent(await document(order_id));
   
