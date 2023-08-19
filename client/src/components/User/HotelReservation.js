@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import useFetch from '../../hooks/useFetch';
 import { HOST } from '../../host';
@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { Button } from '@mui/material';
-import jsPDF from 'jspdf';
 
 function HotelReservation() {
   const {data, loading, error} = useFetch(HOST+"/api/v1/orders");
@@ -21,7 +20,9 @@ function HotelReservation() {
 
   const downloadTicket = async (id)=>{
     try {
+      setIsLoading(true);
       const response = await axios.post(HOST+'/api/v1/generate-pdf', {order_id: id}, { responseType: 'arraybuffer' });
+      setIsLoading(false);
 
       // Create a Blob from the received ArrayBuffer
       const blob = new Blob([response.data], { type: 'application/pdf' });
@@ -33,42 +34,46 @@ function HotelReservation() {
       a.click();
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     } 
   }
 
   const {orders} = data;
-  const columns = [
-    {field: "id", headerName: "ID", width: 220},
-    {field: "hotel", headerName: "Hotel", width: 100},
-    {field: "roomName", headerName: "Room Name", width: 170, renderCell:(params)=>{
-      return (
-        <div className="roomStatus">
-            {
-              params.row.roomName.map((name, index)=>(
-                <div key={index}>{name}</div>
-              ))
-            }
-        </div>
-      )}
-    },
-    {field: "roomNumber", headerName: "Room Number", minWidth: 170, renderCell:(params)=>{
-      return (
-        <div className="roomStatus">
-            {
-              params.row.roomNumber.map((name, index)=>(
-                <div key={index}>{name.join(", ")}</div>
-              ))
-            }
-        </div>
-      )}},
-    {field: "dates", headerName: "Dates", width: 150},
-    {field: "ticket", headerName: "Ticket", width: 100, renderCell: (params)=>{
-      return(
-        <Button className='ticket' variant='contained' onClick={()=>downloadTicket(params.row.id)}><FontAwesomeIcon icon={faDownload} disabled={true} /></Button>
-      )
-    }},
-    {field: "price", headerName: "Total Price", minWidth: 150, flex: 1},
-  ];
+  const columns = useMemo(
+    ()=>[
+      {field: "id", headerName: "ID", width: 220},
+      {field: "hotel", headerName: "Hotel", width: 100},
+      {field: "roomName", headerName: "Room Name", width: 170, renderCell:(params)=>{
+        return (
+          <div className="roomStatus">
+              {
+                params.row.roomName.map((name, index)=>(
+                  <div key={index}>{name}</div>
+                ))
+              }
+          </div>
+        )}
+      },
+      {field: "roomNumber", headerName: "Room Number", minWidth: 170, renderCell:(params)=>{
+        return (
+          <div className="roomStatus">
+              {
+                params.row.roomNumber.map((name, index)=>(
+                  <div key={index}>{name.join(", ")}</div>
+                ))
+              }
+          </div>
+        )}},
+      {field: "dates", headerName: "Dates", width: 150},
+      {field: "ticket", headerName: "Ticket", width: 100, renderCell: (params)=>{
+        return(
+          <Button className='ticket' variant='contained' onClick={()=>downloadTicket(params.row.id)} disabled={isLoading}><FontAwesomeIcon icon={faDownload} /></Button>
+        )
+      }},
+      {field: "price", headerName: "Total Price", minWidth: 150, flex: 1},
+    ],
+    [isLoading]
+  )
   const rows = [];
   orders && orders.forEach((order)=>{
     rows.push({
@@ -87,7 +92,7 @@ function HotelReservation() {
   return (
     <div className='hotelReservationContainer'>
       <h2 className='title'>My Orders</h2>
-      {loading && <Loader />}
+      {(loading || isLoading) && <Loader />}
       <DataGrid
         rows={rows}
         columns={columns}
