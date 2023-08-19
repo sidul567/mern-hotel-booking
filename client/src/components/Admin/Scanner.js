@@ -36,6 +36,10 @@ function Scanner() {
                     style={{"width": "100%"}}
                     onError={handleError}
                     onScan={handleScan}
+                    constraints={{
+                        audio: false,
+                        video: { facingMode: "environment" }
+                      }}
                 />
                 <div className="corner top-left"></div>
                 <div className="corner top-right"></div>
