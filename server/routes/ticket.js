@@ -8,10 +8,14 @@ router.post("/generate-pdf", async (req, res) => {
     const { order_id } = req.body;
   
     try {
-      const browser = await puppeteer.launch({'headless': true,  args: [
-        "--disable-web-security",
+      const browser = await puppeteer.launch({ 
+        args: [
+        "--disable-setuid-sandbox",
         "--no-sandbox",
-      ]
+        "--single-process",
+        "--no-zygote",
+        ],
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
       });
       const page = await browser.newPage();
       await page.evaluateHandle('document.fonts.ready');
