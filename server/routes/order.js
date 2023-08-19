@@ -1,6 +1,6 @@
 import express from "express";
 import {verifyAdmin, verifyUser} from '../middlewares/verifyToken.js';
-import { createOrder, deleteOrder, getAllOrders, getOrders } from "../controllers/orderController.js";
+import { createOrder, deleteOrder, getAllOrders, getOrders, verifyOrder } from "../controllers/orderController.js";
 
 const router = express.Router();
 
@@ -15,5 +15,8 @@ router.get("/admin/orders", verifyAdmin, getAllOrders);
 
 // Delete order
 router.delete("/order/:id", verifyAdmin, deleteOrder);
+
+// Verify order
+router.get("/order/verify/:id", verifyAdmin, verifyOrder);
 
 export default router;

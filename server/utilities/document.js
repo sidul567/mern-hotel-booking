@@ -121,7 +121,7 @@ export const document = async (id)=>{
             <img src="https://play-lh.googleusercontent.com/-LLFboO3-LMZDXn9_2DyCtssJPXqxlbBciKoJ25o5S5wulGJo1QXme4HlFbevrYxUg" alt="">
             <h1>Mern Hotel Booking</h1>
         </header>
-        <h3 class="visitor">Visitor Details</h3>
+        <h3 class="visitor">User Details</h3>
         <div class="visitor-info">
             <div class="user-info">
                 <p>Username: ${order.user.username}</p>
@@ -145,11 +145,11 @@ export const document = async (id)=>{
             <div class="rooms">
                 ${order.hotelInfo.roomInfo.map((room)=>{
                     return `<div class="room">
-                        <p>$${room.roomName}</p>
-                        <p>$${room.roomNumber.join(", ")}</p>
+                        <p>${room.roomName}</p>
+                        <p>[${room.roomNumber.join(", ")}]</p>
                         <p>$${room.roomPrice}</p>
                     </div>`
-                })}
+                }).join("")}
                 <div class="total-price">
                     <h5>Total: $${order.totalPrice}</h5>
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Add, Dashboard, ExpandMore, ImportExport, ListAlt, People, PostAdd, Room } from '@mui/icons-material';
+import { Add, Dashboard, ExpandMore, ImportExport, ListAlt, People, PostAdd, QrCode, Room } from '@mui/icons-material';
 import {TreeItem, TreeView} from '@mui/lab' 
 import './Sidebar.css'
 
@@ -52,6 +52,11 @@ function Sidebar({open, active}) {
         <Link to="/admin/users" className={active==="user" ? "active":""}>
             <p>
                 <People /> Users
+            </p>
+        </Link>
+        <Link to="/admin/scanner" className={active==="user" ? "active":""}>
+            <p>
+                <QrCode /> Scanner
             </p>
         </Link>
     </div>

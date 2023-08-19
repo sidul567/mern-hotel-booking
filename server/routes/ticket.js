@@ -14,14 +14,15 @@ router.post("/generate-pdf", async (req, res) => {
         "--no-sandbox",
         "--single-process",
         "--no-zygote",
+        "--disable-web-security"
         ],
       executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
       });
       const page = await browser.newPage();
-      await page.evaluateHandle('document.fonts.ready');
-
+      
       await page.setContent(await document(order_id));
-  
+      await page.evaluateHandle('document.fonts.ready');
+      
       const pdfBuffer = await page.pdf({
         'format': 'A4'
       });

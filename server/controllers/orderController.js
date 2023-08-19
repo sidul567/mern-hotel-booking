@@ -1,4 +1,5 @@
 import Order from "../models/OrderSchema.js";
+import {createError} from "../utilities/error.js";
 
 // Create Order
 export const createOrder = async(req, res, next)=>{
@@ -50,5 +51,29 @@ export const deleteOrder = async(req, res, next)=>{
         })
     }catch(err){
         next(err);
+    }
+}
+
+// verify order
+export const verifyOrder = async(req, res, next)=>{
+    try{
+        const order = await Order.findById(req.params.id);
+        if(!order){
+            next(createError(404, "Ticket not found!"));
+        }
+
+        const currentDate = new Date().getTime();
+        const startDate = new Date(order.dates.startDate).getTime();
+        const endDate = new Date(order.dates.endDate).getTime();
+
+        if(startDate <= currentDate && currentDate <= endDate){
+            res.status(200).json({
+                success: true,
+            })
+        }else{
+            next(createError(403, "Ticket isn't valid for today!"));
+        }
+    }catch(err){
+        next(err)
     }
 }

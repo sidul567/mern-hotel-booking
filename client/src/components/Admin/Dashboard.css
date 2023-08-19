@@ -120,7 +120,7 @@
         width: 230px !important;
         height: 230px !important;
     }
-    .dashboardContainer{
+    .dashboardContainer, .containerList{
         border-left: none;
     }
     .dashboardContainer .lineChart, .dashboardContainer .doughnut{
