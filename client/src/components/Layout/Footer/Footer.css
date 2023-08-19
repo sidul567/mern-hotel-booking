@@ -1,0 +1,41 @@
+footer{
+    padding: 30px 100px;
+}
+
+.footerItemContainer{
+    display: flex;
+    justify-content: space-between;
+    color: #0f003e;
+}
+
+.footerItemList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.footerItemContainerResponsive{
+    display: none;
+}
+
+footer .copyright{
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 600px){
+    footer{
+        padding: 30px 20px;
+    }
+    .footerItemContainer{
+        display: none;
+    }
+    .footerItemContainerResponsive{
+        display: flex;
+        justify-content: space-between;
+        color: #0f003e;
+        gap: 10px;
+    }
+}

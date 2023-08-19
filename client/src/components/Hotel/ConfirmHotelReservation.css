@@ -1,0 +1,82 @@
+.title{
+    padding: 50px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 26px;
+    padding-bottom: 10px;
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    color: #220092;
+}
+
+.confirmHotelReservation{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 200px;
+    margin-bottom: 100px;
+    padding: 70px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 5px;
+}
+
+.confirmHotelReservation .hotel-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width: 70%;
+}
+
+.confirmHotelReservation .hotel-info div, .confirmHotelReservation .payment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.confirmHotelReservation .hotel-info .room-info{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    padding-bottom: 10px;
+}
+
+.confirmHotelReservation .hotel-info .room-info p{
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmHotelReservation .hotel-info .room-info p span{
+    width: 72%;
+}
+
+.confirmHotelReservation .hotel-info .room-info:last-of-type{
+    border-bottom: none;
+}
+
+.confirmHotelReservation .payment button{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(4, 116, 214);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+@media screen and (max-width: 600px){
+    .confirmHotelReservation{
+        flex-direction: column;
+        padding: 20px;
+        margin: 0 30px;
+        gap: 20px;
+    }
+    .confirmHotelReservation .hotel-info{
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+}

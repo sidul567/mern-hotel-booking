@@ -1,0 +1,132 @@
+.dashboard, .container{
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 10px 100px;
+}
+
+.dashboardContainer, .containerList{
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    background-color: aliceblue;
+    padding: 0 20px;
+    padding-bottom: 50px;
+}
+
+.dashboardItemContainer{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dashboardItemContainer a{
+    text-decoration: none;
+}
+
+.dashboardItem{
+    padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.css-5wly58-MuiDataGrid-root .MuiDataGrid-cellContent {
+    word-break: break-word !important;
+}
+
+.dashboardItem div{
+    width: 40px;
+    height: 40px;
+    background-image: linear-gradient(to left bottom, #0eb57f, #13b983, #17bd87, #1bc18b, #1fc58f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.dashboardItem:nth-of-type(2) div{
+    background-image: linear-gradient(to left top, #feba91, #feb689, #feb182, #fead7a, #fea972);
+}
+
+.dashboardItem:nth-of-type(3) div{
+    background-image: linear-gradient(to right bottom, #0186cb, #0289cd, #048bcf, #068ed0, #0890d2);
+}
+
+.dashboardItem:nth-of-type(4) div{
+    background-image: linear-gradient(to right bottom, #6101cb, #6f28c8, #7b3ec5, #8551c2, #8e62be);
+}
+
+.dashboardItem:nth-of-type(1) p:nth-of-type(2){
+    color: #0eb57f;
+}
+.dashboardItem:nth-of-type(2) p:nth-of-type(2){
+    color: #fea972;
+}
+.dashboardItem:nth-of-type(3) p:nth-of-type(2){
+    color: #0186cb;
+}
+.dashboardItem:nth-of-type(4) p:nth-of-type(2){
+    color: #6101cb;
+}
+
+.dashboardItem svg{
+    font-size: 22px;
+    color: #fff;
+}
+
+.dashboardItem p{
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.dashboardItem p:last-of-type{
+    margin-top: 0;
+    font-size: 25px;
+    font-weight: 700;
+    color: #220092;
+}
+
+.dashboardContainer .lineChart, .dashboardContainer .doughnut{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.dashboardContainer .doughnut canvas{
+    width: 300px !important;
+    height: 300px !important;
+}
+
+@media screen and (max-width: 600px){
+    .dashboard, .container{
+        padding: 10px;
+        grid-template-columns: 1fr;
+    }
+    .dashboardContainer .doughnut canvas{
+        width: 230px !important;
+        height: 230px !important;
+    }
+    .dashboardContainer{
+        border-left: none;
+    }
+    .dashboardContainer .lineChart, .dashboardContainer .doughnut{
+        width: 100%;
+    }
+    .dashboardContainer, .containerList{
+        overflow: hidden;
+    }
+}

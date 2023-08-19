@@ -1,0 +1,103 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px;
+    background-color: #220092;
+}
+
+header .logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+header .login_register_btn{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+header .userOptions{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: #fff;
+    justify-content: space-between;
+}
+
+header .userOptions img{
+    width: 40px;
+}
+
+header .userOptions svg{
+    color: #fff;
+    font-size: 20px;
+    padding: 0 5px;
+}
+
+header .userOptions .username{
+    color: #fff;
+    font-size: 22px;
+    border: 2px solid #ffda22;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.3s all ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+header .login_register_btn .username:hover{
+    background-color: #ffda22;
+    color: #000;
+}
+
+header .login_register_btn a{
+    font-size: 16px;
+    color: #000;
+    background-color: aliceblue;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.headerList{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.headerList .headerListItem{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navListContainer{
+    background-color: #220092;
+    color: #fff;
+    padding: 10px 100px;
+}
+
+.logout{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .headerList{
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .navListContainer, header{
+        padding: 10px 20px;
+    }
+    header{
+        padding-top: 20px;
+    }
+}

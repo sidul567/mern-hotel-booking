@@ -1,0 +1,68 @@
+.sidebar{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+}
+
+.sidebar > a > img{
+    width: 4rem;
+    transition: all 0.5s;
+}
+
+.sidebar a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.sidebar a:hover{
+    color: #220092;
+}
+
+.sidebar a > p{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a > p > svg{
+    margin-right: 5px;
+}
+.MuiTreeView-root css-12mehxg{
+    padding-bottom: 70px;
+}
+.sidebar ul .css-1g86id8-MuiTreeItem-content:hover,
+.sidebar ul .css-1g86id8-MuiTreeItem-content:hover .MuiTreeItem-label{
+    color: #220092 !important;
+}
+
+.MuiTreeItem-label{
+    padding-left: 0 !important;
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 500 !important;
+}
+.Mui-expanded .MuiTreeItem-label, .MuiTreeView-root > li > .MuiTreeItem-content .MuiTreeItem-label{
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 10px !important;
+}
+.css-1g86id8-MuiTreeItem-content{
+    padding: 0 !important;
+}
+.sidebar a.active{
+    color: #220092;
+}
+.css-1g86id8-MuiTreeItem-content .MuiTreeItem-iconContainer svg{
+    font-size: 1.5rem !important;
+}
+
+.sidebar > ul{
+    margin: 10px 0;
+    margin-top: 13px;
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 600px){
+    .sidebar{
+        padding: 20px 0;
+    }
+}

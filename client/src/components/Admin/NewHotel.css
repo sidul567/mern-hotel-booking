@@ -1,0 +1,38 @@
+.hotelForm{
+    display: flex;
+    gap: 50px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hotelForm .side1, .hotelForm .side2{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.align-flex-start{
+    align-self: flex-start;
+}
+
+.createHotelImages{
+    width: 335px;
+    display: flex;
+    gap: 5px;
+    overflow: auto;
+}
+
+.createHotelImages img{
+    width: 35px;
+    height: 35px;
+}
+
+@media screen and (max-width: 600px){
+    .hotelForm{
+        gap: 10px;
+    }
+    .hotelForm .side1, .hotelForm .side2{
+        width: 50%;
+    }
+}

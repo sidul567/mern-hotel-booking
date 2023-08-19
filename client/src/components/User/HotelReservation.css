@@ -1,0 +1,79 @@
+.hotelReservationContainer{
+    padding: 0 100px;
+}
+
+.css-yrdy0g-MuiDataGrid-columnHeaderRow, .MuiDataGrid-columnHeadersInner {
+    background: #220092;
+    color: #fff;
+    font-size: 16px;
+}
+
+.css-t89xny-MuiDataGrid-columnHeaderTitle{
+    font-weight: 700 !important;
+}
+
+.css-5wly58-MuiDataGrid-root .MuiDataGrid-cellContent{
+    font-weight: 500 !important;
+}
+.css-5wly58-MuiDataGrid-root .MuiDataGrid-sortIcon{
+    color: #fff;
+    opacity: 1;
+}
+
+.roomStatus{
+    display: flex;
+    flex-direction: column;
+}
+
+.roomStatus div{
+    font-weight: 500 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.roomStatus div:last-of-type{
+    border-bottom: none;
+}
+
+.orderList{
+    background-color: #fff;
+}
+
+.orderList .actions{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.orderList .actions button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.orderList .actions svg{
+    color: rgba(0, 0, 0, 0.43);
+    font-size: 16px;
+    transition: 0.3s all ease;
+}
+
+.orderList .actions svg:hover{
+    color: #220092;
+}
+
+.ticket{
+    border: none;
+    outline: none;
+    background-color: #220092;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px){
+    .hotelReservationContainer{
+        padding: 0 20px;
+    }
+  }

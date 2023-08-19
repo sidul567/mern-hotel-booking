@@ -1,0 +1,167 @@
+.loginContainer{
+    display: flex;
+    padding: 100px;
+    /* background-image: linear-gradient(to right bottom, #220092, #5133ae, #775cc9, #9c85e4, #c2b0ff); */
+}
+
+.loginWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #fff;
+    padding: 100px;
+    width: 100%;
+    border-radius: 10px;
+    gap: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.loginContainer .loginInfo{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    padding: 30px;
+    width: 50%;
+}
+
+.loginContainer .loginInfo h3{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form .form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+form .form-group label{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+form .form-group input, form .form-group select, .form-group textarea{
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form .form-group .wrapper{
+    display: flex;
+    align-items: stretch;
+}
+
+form .form-group .wrapper .icon, form .form-group .wrapper .avatar{
+    background: #220092;
+    color: #fff;
+    font-size: 20px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.form-group .wrapper .avatar{
+    background-color: #fff !important;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.avatar{
+    max-width: 30px;
+}
+
+form .form-group .wrapper .icon img, form .form-group .wrapper .avatar img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.form-group textarea{
+    max-height: 200px;
+    resize: none;
+}
+
+form .form-submit input{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #220092;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+form input[type="file"]{
+    padding: 0;
+}
+
+form input::file-selector-button{
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    padding: 5px 10px;
+}
+
+form .error{
+    background-color: #f5c6cb;
+    color: #721c24;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #fe9ea8;
+}
+
+form p a{
+    text-decoration: none;
+    color: #220092;
+}
+
+.loginContainer .loginImg{
+    align-self: center;
+    width: 40%;
+}
+
+.loginContainer .loginImg img{
+    width: 300px;
+}
+
+@media screen and (max-width: 600px){
+    .loginContainer{
+        padding: 20px;
+    }
+    .loginWrapper{
+        padding: 20px;
+        flex-direction: column;
+    }
+    .loginContainer .loginInfo{
+        width: 100%;
+        order: 2;
+    }
+    .loginContainer .loginImg{
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .loginContainer .loginImg img{
+        width: 150px;
+    }
+}

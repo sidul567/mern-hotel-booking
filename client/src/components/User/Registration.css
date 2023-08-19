@@ -1,0 +1,7 @@
+.registrationContainer{
+    padding-top: 25px;
+}
+
+.registrationContainer .loginImg img{
+    width: 100%;
+}

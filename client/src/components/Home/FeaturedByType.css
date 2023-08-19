@@ -1,0 +1,43 @@
+.featuredByType{
+    padding: 10px 100px;
+}
+
+.featuredByType h4{
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.featuredByTypeContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.featuredByTypeContainer .featureImage img{
+    width: 180px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.featuredByTypeContainer .featureImage .featureImageDesc h3{
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.featuredByTypeContainer .featureImage .featureImageDesc p{
+    font-weight: 400;
+}
+
+@media screen and (max-width: 600px){
+    .featuredByType{
+        padding: 10px 20px;
+    }
+    .featuredByTypeContainer{
+        justify-content: center;
+    }
+    .featuredByType h4{
+        text-align: center;
+    }
+}

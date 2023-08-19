@@ -1,0 +1,117 @@
+.hotelDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 100px;
+}
+
+.hotelDetailsContainer .header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotelDetailsContainer .header .details{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hotelDetailsContainer .header .details h3{
+    font-size: 24px;
+}
+
+.hotelDetailsContainer .header .details .location{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.hotelDetailsContainer .header .details .distance{
+    color: #220092;
+}
+
+.hotelDetailsContainer .header .reserveBtn button,
+.hotelDetailsContainer .description-reservation .reservation button{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgb(4, 116, 214);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+.hotelDetailsContainer .description-reservation .reservation button.unavailable{
+    background-color: #f5c6cb;
+    color: #721c24;
+    border: 1px solid #fe9ea8;
+    cursor: auto;
+}
+
+.hotelDetailsContainer .gallery{
+    width: 100%;
+}
+
+.hotelDetailsContainer .description-reservation{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.hotelDetailsContainer .description-reservation .description{
+    width: 70%;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.hotelDetailsContainer .description-reservation .description h3{
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.hotelDetailsContainer .description-reservation .reservation{
+    width: 30%;
+    background-color: #ebf4ff;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.hotelDetailsContainer .description-reservation .reservation h4{
+    font-size: 18px;
+}
+
+.hotelDetailsContainer .description-reservation .reservation p{
+    text-align: justify;
+}
+
+.hotelDetailsContainer .description-reservation .reservation .price{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.hotelDetailsContainer .description-reservation .reservation .price span{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 600px){
+    .hotelDetailsContainer{
+        padding: 20px;
+    }
+    .hotelDetailsContainer .description-reservation{
+        flex-direction: column;
+    }
+    .hotelDetailsContainer .description-reservation .description, .hotelDetailsContainer .description-reservation .reservation{
+        width: 100%;
+    }
+    .hotelDetailsContainer .header .reserveBtn button{
+        display: none;
+    }
+}

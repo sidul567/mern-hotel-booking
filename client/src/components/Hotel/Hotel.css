@@ -1,0 +1,222 @@
+.hotelListContainer{
+    display: flex;
+    gap: 10px;
+    padding: 20px 100px;
+}
+
+.hotelListContainer .search{
+    width: 30%;
+    background-color: rgba(255, 140, 0, 0.591);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.hotelListContainer .search h3{
+    font-size: 22px;
+}
+
+.hotelListContainer .search .destination,
+.hotelListContainer .search .checkInDate{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hotelListContainer .search .destination input{
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.hotelListContainer .search .checkInDate .date{
+    display: flex;
+    gap: 10px;
+    background-color: #fff;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.hotelListContainer .search .checkInDate .date .dateRange{
+    position: absolute;
+    top: 40px;
+}
+
+.hotelListContainer .options{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hotelListContainer .options div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotelListContainer .options div input{
+    width: 20%;
+    color: #000;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.hotelListContainer .searchBtn button{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgb(4, 116, 214);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+.hotelListContainer .searchBtn button:hover{
+    background-color: rgb(2, 102, 190);
+}
+
+.hotelListContainer .searchResult{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+
+.hotelListContainer .searchResult .notFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+.hotelListContainer .searchResult .searchItem{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.hotelListContainer .searchResult .searchItem .hotelImage{
+    width: 25%;
+}
+
+.hotelListContainer .searchResult .searchItem .hotelImage img{
+    width: 100%;
+    height: 100%;
+}
+
+.hotelListContainer .searchResult .hotelDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+
+.hotelListContainer .searchResult .hotelDetails h3{
+    font-size: 22px;
+    color: rgb(7, 43, 203);
+    font-weight: 700;
+}
+
+.hotelListContainer .searchResult .hotelDetails p{
+    font-size: 12px;
+}
+
+.hotelListContainer .searchResult .hotelDetails p.taxi{
+    background-color: forestgreen;
+    width: 120px;
+    text-align: center;
+    color: #fff;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.hotelListContainer .hotelRating{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotelListContainer .hotelRating .rating{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotelListContainer .hotelRating .rating p{
+    font-weight: 600;
+}
+
+.hotelListContainer .hotelRating .rating p:last-child{
+    background-color: #220092;
+    padding: 2px 5px;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.hotelListContainer .hotelRating .price{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.hotelListContainer .hotelRating .price p{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.hotelListContainer .hotelRating .price p:first-child{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.hotelListContainer .hotelRating .price a{
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgb(4, 116, 214);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+    .hotelListContainer{
+        padding: 20px;
+        flex-direction: column;
+    }
+    .hotelListContainer .search, .hotelListContainer .searchResult{
+        width: 100%;
+        position: relative;
+    }
+    .hotelListContainer .searchResult .searchItem{
+        flex-direction: column;
+        position: relative;
+    }
+    .hotelListContainer .hotelRating{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+}

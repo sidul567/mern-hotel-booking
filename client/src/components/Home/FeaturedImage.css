@@ -1,0 +1,45 @@
+.featureImageContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+    padding-top: 50px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.featureImageContainer .featureImage img{
+    width: 340px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.featureImageContainer .featureImage{
+    position: relative;
+}
+
+.featureImageContainer .featureImage .featureImageDesc{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+}
+
+.featureImageContainer .featureImage .featureImageDesc h3{
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.featureImageContainer .featureImage .featureImageDesc p{
+    font-size: 24px;
+}
+
+@media screen and (max-width: 600px){
+    .featureImageContainer .featureImage img{
+        width: 100%;
+        height: auto;
+    }
+    .featureImageContainer{
+        padding: 10px 20px;
+    }
+}
