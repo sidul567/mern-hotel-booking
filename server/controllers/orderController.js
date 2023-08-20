@@ -62,9 +62,13 @@ export const verifyOrder = async(req, res, next)=>{
             next(createError(404, "Ticket not found!"));
         }
 
-        const currentDate = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
-        const startDate = new Date(order.dates.startDate).getTime();
-        const endDate = new Date(order.dates.endDate).getTime();
+        const currentDate = new Date(new Date().setHours(0, 0, 0, 0));
+        const startDate = new Date(order.dates.startDate);
+        const endDate = new Date(order.dates.endDate);
+
+        console.log("start date: "+startDate);
+        console.log("end date: "+endDate);
+        console.log("current date: "+currentDate);
 
         if(startDate <= currentDate && currentDate <= endDate){
             order.status = "Success";
