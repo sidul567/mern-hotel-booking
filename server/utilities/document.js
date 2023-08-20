@@ -6,6 +6,9 @@ export const document = async (id)=>{
     const order = await Order.findById(id).populate("hotelInfo.hotelId", "name").populate("user", "username email");
 
     const qr = await QRCode.toDataURL(id);
+    console.log(new Date(order.dates.startDate).getTime());
+    console.log(new Date(order.dates.startDate) - new Date().getTimezoneOffset());
+    console.log("Timezoneoffset: "+ new Date().getTimezoneOffset());
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -163,7 +166,7 @@ export const document = async (id)=>{
             </div>
             <div class="ticket-info">
                 <p>#${order._id}</p>
-                <p>${format(new Date(order.dates.startDate) - new Date().getTimezoneOffset(), "dd MMM, yyyy")} to ${format(new Date(order.dates.endDate) - new Date().getTimezoneOffset(), "dd MMM, yyyy")}</p>
+                <p>${format(new Date(order.dates.startDate).getTime() - new Date().getTimezoneOffset(), "dd MMM, yyyy")} to ${format(new Date(order.dates.endDate).getTime() - new Date().getTimezoneOffset(), "dd MMM, yyyy")}</p>
             </div>
         </div>
     </body>
