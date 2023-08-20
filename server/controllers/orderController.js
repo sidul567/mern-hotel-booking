@@ -66,6 +66,10 @@ export const verifyOrder = async(req, res, next)=>{
         const startDate = new Date(order.dates.startDate).getTime();
         const endDate = new Date(order.dates.endDate).getTime();
 
+        console.log("currentDate: "+currentDate);
+        console.log("startDate: "+startDate);
+        console.log("endDate: "+endDate);
+
         if(startDate <= currentDate && currentDate <= endDate){
             order.status = "Success";
             await order.save();
