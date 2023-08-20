@@ -93,7 +93,7 @@ function Scanner() {
                         data && data.success ? <CheckCircle fontSize='large' color='success' /> : <Cancel fontSize='large' color='error'  />
                     }
                     <Typography id="transition-modal-title" variant="h6" component="h2" marginBottom={1}>
-                    {data.message}
+                    {data.message || "Something went wrong!"}
                     </Typography>
                     <Button variant='outlined' size='medium' onClick={()=>window.location.reload()}>Scan</Button>
                 </Box>
