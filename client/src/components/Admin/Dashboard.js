@@ -13,7 +13,7 @@ import Loader from '../Layout/Loader/Loader';
 function Dashboard() {
   const {data: {hotels}, loading} = useFetch(HOST+`/api/v1/hotels`);
   const {data: {rooms}} = useFetch(HOST+`/api/v1/rooms`);
-  const {data: {orders}} = useFetch(HOST+`/api/v1/orders`);
+  const {data: {orders}} = useFetch(HOST+`/api/v1/admin/orders`);
   const {data: {users}} = useFetch(HOST+`/api/v1/users`);
 
   let totalAmount = 0;

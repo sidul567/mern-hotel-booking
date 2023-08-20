@@ -17,7 +17,7 @@ function Registration() {
     });
     const [avatarPreview, setAvatarPreview] = useState("");
     const navigate  = useNavigate();
-    const {loading, error, dispatch} = useContext(AuthContext);
+    const {authLoading, error, dispatch} = useContext(AuthContext);
 
     const handleRegistrationInput = (e)=>{
         setRegistrationInfo((prevState)=>{
@@ -68,7 +68,7 @@ function Registration() {
 
   return (
     <div className='loginContainer registrationContainer'>
-        {loading && <Loader />}
+        {authLoading && <Loader />}
         <div className="loginWrapper">
             <div className="loginInfo">
                 <h3>Registration</h3>

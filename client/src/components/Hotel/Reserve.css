@@ -94,7 +94,7 @@
     font-size: 12px;
   }
 
-  .modal-content .rooms .room .roomNumber .roomNumberInfo input{
+  .modal-content .rooms .room .roomNumber .roomNumberInfo span{
     width: 20px;
     height: 20px;
   }

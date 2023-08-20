@@ -117,9 +117,17 @@ function ConfirmHotelReservation() {
             };
             var rzp1 = new window.Razorpay(options);
             rzp1.open();
+            // await axios.post(HOST+"/api/v1/order/new", order, {
+            //     'withCredentials': true,
+            //     'headers': {
+            //         'Content-Type': 'application/json',
+            //     }
+            // })
             setLoading(false);
         }catch(err){
             toast.error(err.message);
+            console.log(err);
+            setLoading(false)
         }
     }
 

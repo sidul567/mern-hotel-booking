@@ -1,3 +1,4 @@
+import Order from '../models/OrderSchema.js';
 import User from '../models/UserSchema.js';
 import {v2 as cloudinary} from 'cloudinary';
 
@@ -34,7 +35,8 @@ export const deleteUser = async(req, res, next)=>{
     try{
         const user = await User.findById(req.params.id);
         await cloudinary.uploader.destroy(user.avatar.public_id);
-        await User.findByIdAndDelete(req.params.id)
+        await User.findByIdAndDelete(req.params.id);
+        await Order.deleteMany({'user': req.params.id});
         res.status(200).json({
             success: true,
             message: "User deleted successfully!",

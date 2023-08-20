@@ -89,7 +89,7 @@ function OrderList() {
       roomNumber: order.hotelInfo.roomInfo.map((room)=>{
         return room.roomNumber
       }),
-      user: order.user.username,
+      user: order?.user?.username,
       status: order.paymentInfo.status,
       price: "$"+order.totalPrice,
       dates: `${format(new Date(order.dates.startDate), "dd MMM, yyyy")} - ${format(new Date(order.dates.endDate), "dd MMM, yyyy")}`

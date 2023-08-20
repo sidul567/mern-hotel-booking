@@ -41,7 +41,7 @@ function HotelReservation() {
   const {orders} = data;
   const columns = useMemo(
     ()=>[
-      {field: "id", headerName: "ID", width: 220},
+      {field: "id", headerName: "ID", width: 120},
       {field: "hotel", headerName: "Hotel", width: 100},
       {field: "roomName", headerName: "Room Name", width: 170, renderCell:(params)=>{
         return (
@@ -64,6 +64,15 @@ function HotelReservation() {
               }
           </div>
         )}},
+      {field: "status", headerName: "Status", width: 100, renderCell: (params)=>{
+        return (
+          <>
+            {
+              params.row.status === "Pending" ? <p className='red'>Pending</p> : <p className='green'>Success</p>
+            }
+          </>
+        )
+      }},
       {field: "dates", headerName: "Dates", width: 150},
       {field: "ticket", headerName: "Ticket", width: 100, renderCell: (params)=>{
         return(
@@ -85,6 +94,7 @@ function HotelReservation() {
       roomNumber: order.hotelInfo.roomInfo.map((room)=>{
         return room.roomNumber
       }),
+      status: order.status,
       price: "$"+order.totalPrice,
       dates: `${format(new Date(order.dates.startDate), "dd MMM, yyyy")} to ${format(new Date(order.dates.endDate), "dd MMM, yyyy")}`
     })

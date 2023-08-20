@@ -17,7 +17,7 @@ router.post("/room/new", verifyAdmin, createRoom);
 router.put("/room/:id", verifyAdmin, updateRoom)
 
 // Update Room Availability
-router.put("/room/availability/:roomNumberId", verifyAdmin, updateRoomAvailability);
+router.put("/room/availability/:roomNumberId", verifyUser, updateRoomAvailability);
 
 // Delete
 router.delete("/room/:id", verifyAdmin, deleteRoom)

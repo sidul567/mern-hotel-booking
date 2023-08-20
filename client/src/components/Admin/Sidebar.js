@@ -54,7 +54,7 @@ function Sidebar({open, active}) {
                 <People /> Users
             </p>
         </Link>
-        <Link to="/admin/scanner" className={active==="user" ? "active":""}>
+        <Link to="/admin/scanner" className={active==="scanner" ? "active":""}>
             <p>
                 <QrCode /> Scanner
             </p>

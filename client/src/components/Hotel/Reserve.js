@@ -6,6 +6,8 @@ import Loader from '../Layout/Loader/Loader';
 import { SearchContext } from '../../context/SearchContext';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { Checkbox } from '@mui/material';
+import { Hotel, HotelOutlined } from '@mui/icons-material';
 
 function Reserve({openModal, setOpenModal, hotelId}) {
     const [openModalClass, setOpenModalClass] = useState(openModal);
@@ -119,7 +121,15 @@ function Reserve({openModal, setOpenModal, hotelId}) {
                 room.roomNumbers.map((roomNumber)=>(
                   <div className="roomNumberInfo" key={roomNumber._id}>
                     <label htmlFor={`${roomNumber._id}`}>{roomNumber.number}</label>
-                    <input type="checkbox" name={`${roomNumber._id}`} value={`${roomNumber._id}`} onChange={(e)=>handleCheck(e, roomNumber.number, room)} id={`${roomNumber._id}`} disabled={!isAvailable(roomNumber)} />
+                    <Checkbox 
+                      type="checkbox" 
+                      name={`${roomNumber._id}`} 
+                      value={`${roomNumber._id}`} 
+                      onChange={(e)=>handleCheck(e, roomNumber.number, room)} 
+                      id={`${roomNumber._id}`} disabled={!isAvailable(roomNumber)} 
+                      icon={<HotelOutlined />}
+                      checkedIcon={<Hotel />} 
+                    />
                   </div>
                 ))
               }
