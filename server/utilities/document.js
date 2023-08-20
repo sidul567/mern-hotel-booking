@@ -1,6 +1,6 @@
 import QRCode from "qrcode"
 import Order from "../models/OrderSchema.js";
-import {format} from "date-fns-tz";
+import {format} from "date-fns";
 
 export const document = async (id)=>{
     const order = await Order.findById(id).populate("hotelInfo.hotelId", "name").populate("user", "username email");
@@ -164,7 +164,7 @@ export const document = async (id)=>{
             </div>
             <div class="ticket-info">
                 <p>#${order._id}</p>
-                <p>${format(new Date(order.dates.startDate), "dd MMM, yyyy", {'timeZone': 'Asia/Dhaka'})} to ${format(new Date(order.dates.endDate), "dd MMM, yyyy", {'timeZone': 'Asia/Dhaka'})}</p>
+                <p>${format(new Date(order.dates.startDate), "dd MMM, yyyy")} to ${format(new Date(order.dates.endDate), "dd MMM, yyyy")}</p>
             </div>
         </div>
     </body>
