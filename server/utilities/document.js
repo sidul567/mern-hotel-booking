@@ -163,7 +163,7 @@ export const document = async (id)=>{
             </div>
             <div class="ticket-info">
                 <p>#${order._id}</p>
-                <p>${format(new Date(order.dates.startDate), "dd MMM, yyyy")} to ${format(new Date(order.dates.endDate), "dd MMM, yyyy")}</p>
+                <p>${format(new Date(order.dates.startDate) - new Date().getTimezoneOffset(), "dd MMM, yyyy")} to ${format(new Date(order.dates.endDate) - new Date().getTimezoneOffset(), "dd MMM, yyyy")}</p>
             </div>
         </div>
     </body>

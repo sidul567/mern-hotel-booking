@@ -63,14 +63,10 @@ export const verifyOrder = async(req, res, next)=>{
         }
 
         const currentDate = new Date(new Date().setHours(0, 0, 0, 0));
-        const startDate = new Date(order.dates.startDate);
-        const endDate = new Date(order.dates.endDate);
+        const startDate = new Date(order.dates.startDate) - new Date().getTimezoneOffset();
+        const endDate = new Date(order.dates.endDate) - new Date().getTimezoneOffset();
 
-        console.log("start date: "+startDate);
-        console.log("end date: "+endDate);
-        console.log("current date: "+currentDate);
-
-        if(startDate <= currentDate && currentDate <= endDate){
+        if(startDate <= currentDate.getTime() && currentDate.getTime() <= endDate){
             order.status = "Success";
             await order.save();
             res.status(200).json({
