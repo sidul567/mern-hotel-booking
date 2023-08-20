@@ -6,7 +6,7 @@ export const document = async (id)=>{
     const order = await Order.findById(id).populate("hotelInfo.hotelId", "name").populate("user", "username email");
 
     const qr = await QRCode.toDataURL(id);
-
+ 
     return `
     <!DOCTYPE html>
     <html lang="en">
