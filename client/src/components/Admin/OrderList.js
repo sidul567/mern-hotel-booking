@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import useFetch from '../../hooks/useFetch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { HOST } from '../../host';
 import { DataGrid } from '@mui/x-data-grid';
 import Loader from '../Layout/Loader/Loader';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 function OrderList() {
   const {data, loading, error, reFetchData} = useFetch(HOST+"/api/v1/admin/orders");
@@ -36,9 +37,9 @@ function OrderList() {
   }
 
   const columns = [
-    {field: "id", headerName: "ID", width: 120},
-    {field: "hotel", headerName: "Hotel", width: 70},
-    {field: "roomName", headerName: "Room", width: 115, renderCell:(params)=>{
+    {field: "id", headerName: "ID", minWidth: 120},
+    {field: "hotel", headerName: "Hotel", minWidth: 80},
+    {field: "roomName", headerName: "Room", minWidth: 115, renderCell:(params)=>{
       return (
         <div className="roomStatus">
             {
@@ -49,7 +50,7 @@ function OrderList() {
         </div>
       )}
     },
-    {field: "roomNumber", headerName: "Room Number", width: 140, renderCell:(params)=>{
+    {field: "roomNumber", headerName: "Room Number", minWidth: 165, renderCell:(params)=>{
       return (
         <div className="roomStatus">
             {
@@ -59,21 +60,31 @@ function OrderList() {
             }
         </div>
       )}},
-    {field: "user", headerName: "User", width: 80},
-    {field: "status", headerName: "Status", width: 80, renderCell:(params)=>{
+    {field: "status", headerName: "Status", minWidth: 80, renderCell:(params)=>{
       return (
         <>
           {
-            params.row.status === "Paid" ? <p className='green'>{params.row.status}</p> : <p className='red'>{params.row.status}</p>
+            params.row.status === "Pending" ? <p className='red'>{params.row.status}</p> : <p className='green'>{params.row.status}</p>
           }
         </>
       )
     }},
-    {field: "dates", headerName: "Dates", width: 130},
-    {field: "price", headerName: "Total Price", width: 120},
-    {field: "action", headerName: "Actions", width: 100,renderCell:(params)=>{
+    {field: "user", headerName: "User", minWidth: 80},
+    {field: "payment", headerName: "Payment", minWidth: 120, renderCell:(params)=>{
+      return (
+        <>
+          {
+            params.row.payment === "Paid" ? <p className='green'>{params.row.payment}</p> : <p className='red'>{params.row.payment}</p>
+          }
+        </>
+      )
+    }},
+    {field: "dates", headerName: "Dates", minWidth: 130},
+    {field: "price", headerName: "Total Price", minWidth: 150},
+    {field: "action", headerName: "Actions", minWidth: 120,renderCell:(params)=>{
         return (
           <div className="actions">
+              <Link to={`/admin/order/${params.row.id}`}><FontAwesomeIcon icon={faEdit} /></Link>
               <button onClick={()=>deleteOrder(params.row.id)}><FontAwesomeIcon icon={faTrash} /></button>
           </div>
         )}},
@@ -90,7 +101,8 @@ function OrderList() {
         return room.roomNumber
       }),
       user: order?.user?.username,
-      status: order.paymentInfo.status,
+      payment: order.paymentInfo.status,
+      status: order.status,
       price: "$"+order.totalPrice,
       dates: `${format(new Date(order.dates.startDate), "dd MMM, yyyy")} - ${format(new Date(order.dates.endDate), "dd MMM, yyyy")}`
     })
@@ -104,6 +116,7 @@ function OrderList() {
             <h2 className="title">Order List</h2>
             <div className="hotelDataList">
             <DataGrid
+                style={{overflow: "hidden"}}
                 rows={rows}
                 columns={columns}
                 initialState={{

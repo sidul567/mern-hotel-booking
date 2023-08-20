@@ -8,14 +8,14 @@
     font-size: 16px;
 }
 
-.css-t89xny-MuiDataGrid-columnHeaderTitle{
+.MuiDataGrid-columnHeaderTitle{
     font-weight: 700 !important;
 }
 
-.css-5wly58-MuiDataGrid-root .MuiDataGrid-cellContent{
+.MuiDataGrid-cellContent{
     font-weight: 500 !important;
 }
-.css-5wly58-MuiDataGrid-root .MuiDataGrid-sortIcon{
+.MuiDataGrid-sortIcon{
     color: #fff;
     opacity: 1;
 }

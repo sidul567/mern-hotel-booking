@@ -1,8 +1,9 @@
 .dashboard, .container{
     max-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: .5fr 5fr;
     padding: 10px 100px;
+    padding-right: 20px;
 }
 
 .dashboardContainer, .containerList{
@@ -11,6 +12,7 @@
     background-color: aliceblue;
     padding: 0 20px;
     padding-bottom: 50px;
+    overflow: hidden;
 }
 
 .dashboardItemContainer{
@@ -35,7 +37,7 @@
     background-color: #fff;
 }
 
-.css-5wly58-MuiDataGrid-root .MuiDataGrid-cellContent {
+.MuiDataGrid-cellContent {
     word-break: break-word !important;
 }
 
