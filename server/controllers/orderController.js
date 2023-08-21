@@ -28,6 +28,19 @@ export const getOrders = async(req, res, next)=>{
     }
 }
 
+// Get Single Order
+export const getOrder = async(req, res, next)=>{
+    try{
+        const order = await Order.findById(req.params.id).populate("hotelInfo.hotelId", "name").populate("user", "username");
+        res.json({
+            success: true,
+            order,
+        })
+    }catch(err){
+        next(err);
+    }
+}
+
 // Get Order
 export const getAllOrders = async(req, res, next)=>{
     try{
@@ -35,6 +48,19 @@ export const getAllOrders = async(req, res, next)=>{
         res.json({
             success: true,
             orders,
+        })
+    }catch(err){
+        next(err);
+    }
+}
+
+// Update Order
+export const updateOrder = async(req, res, next)=>{
+    try{
+        await Order.findByIdAndUpdate(req.params.id, req.body);
+        res.json({
+            success: true,
+            message: "Order updated successfully!",
         })
     }catch(err){
         next(err);
@@ -65,10 +91,6 @@ export const verifyOrder = async(req, res, next)=>{
         const currentDate = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
         const startDate = new Date(order.dates.startDate).getTime();
         const endDate = new Date(order.dates.endDate).getTime();
-
-        console.log("currentDate: "+currentDate);
-        console.log("startDate: "+startDate);
-        console.log("endDate: "+endDate);
 
         if(startDate <= currentDate && currentDate <= endDate){
             order.status = "Success";

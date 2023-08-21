@@ -61,7 +61,7 @@ function Scanner() {
             <div className="scanner">
                 <QrReader 
                     delay={10000}
-                    style={{"width": "100%"}}
+                    style={{"width": "100%", "height": "100%"}}
                     onError={handleError}
                     onScan={handleScan}
                     constraints={{

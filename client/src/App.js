@@ -31,6 +31,7 @@ import Loader from './components/Layout/Loader/Loader';
 import { toast } from 'react-toastify';
 import NotFound from './components/NotFound/NotFound';
 import Scanner from './components/Admin/Scanner';
+import UpdateOrder from './components/Admin/UpdateOrder';
 
 function App() {
 
@@ -80,6 +81,7 @@ function App() {
               <Route exact path="admin/room/new" element={<NewRoom />} />
               <Route exact path="admin/room/:id" element={<UpdateRoom />} />
               <Route exact path="admin/orders" element={<OrderList />} />
+              <Route exact path="admin/order/:id" element={<UpdateOrder />} />
               <Route exact path="admin/users" element={<UserList />} />
               <Route exact path="admin/user/:id" element={<UpdateUser />} />
               <Route exact path="admin/scanner" element={<Scanner />} />

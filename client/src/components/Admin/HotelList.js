@@ -13,6 +13,7 @@ import axios from 'axios';
 function HotelList() {
   const {data, loading, error, reFetchData} = useFetch(HOST+"/api/v1/hotels");
   const {hotels} = data;
+  console.log(hotels);
   const [isLoading, setIsLoading]  = useState(false);
   if(error){
     toast.error(error);
@@ -39,8 +40,9 @@ function HotelList() {
     {field: "id", headerName: "ID", width: 220},
     {field: "hotel", headerName: "Hotel", width: 200},
     {field: "type", headerName: "Type", width: 100},
-    {field: "cheapestPrice", headerName: "Cheapest Price", width: 200},
-    {field: "action", headerName: "Actions", minWidth: 150, flex: 1,renderCell:(params)=>{
+    {field: "location", headerName: "Location", width: 150},
+    {field: "cheapestPrice", headerName: "Cheapest Price", width: 150},
+    {field: "action", headerName: "Actions", minWidth: 130, flex: 1,renderCell:(params)=>{
         return (
           <div className="actions">
               <Link to={`/admin/hotel/${params.row.id}`}><FontAwesomeIcon icon={faEdit} /></Link>
@@ -54,6 +56,7 @@ function HotelList() {
       id: hotel._id,
       hotel: hotel.name,
       type: hotel.type,
+      location: hotel.city,
       cheapestPrice: hotel.cheapestPrice,
     })
   })
